@@ -21,11 +21,14 @@ function dealToPlayer() {
 // background-image: url(../images/cards/9_of_clubs.svg);
 // style="background-image: url(../images/cards/${e.card)"
 // render card face up can only render depending on the length of players hand
+// style="background-image: url(${e.card})"
+// <img src="${e.card}" data-src="${e.card}"/>
 function renderCardFacedUp() {    
     playerHand.forEach(function(e){
     const card = `
       <div data-key="${e.card}" id="card">
-       <figure class="card-front" style="background-image: url(../images/cards/${e.card})"></figure>
+       <figure class="card-front" style="background-image: url(${e.card})">
+       </figure>
        <figure class="card-back"></figure>
     </div>
     `;
@@ -42,3 +45,4 @@ function ifHas() {
     })
 }
 
+// filter on the once that has the data-key, and take them out.

@@ -1,165 +1,185 @@
+
+
 const cardData = [
 {
-    card: '10_of_clubs.svg',
+    card: '../images/cards/10_of_clubs.svg',
     value: 10
 }, {
-    card: '10_of_dimonds.svg',
+    card: '../images/cards/10_of_dimonds.svg',
     value: 10
 }, {
-    card: '10_of_hearts.svg',
+    card: '../images/cards/10_of_hearts.svg',
     value: 10
 }, {
-    card: '10_of_spades.svg',
+    card: '../images/cards/10_of_spades.svg',
     value: 10
 }, {
-    card: '2_of_clubs.svg',
+    card: '../images/cards/2_of_clubs.svg',
     value: 2
 }, {
-    card: '2_of_dimonds.svg',
+    card: '../images/cards/2_of_dimonds.svg',
     value: 2
 }, {
-    card: '2_of_hearts.svg',
+    card: '../images/cards/2_of_hearts.svg',
     value: 2
 }, {
-    card: '2_of_spades.svg',
+    card: '../images/cards/2_of_spades.svg',
     value: 2
 }, {
-    card: '3_of_clubs.svg',
+    card: '../images/cards/3_of_clubs.svg',
     value: 3
 }, {
-    card: '3_of_dimonds.svg',
+    card: '../images/cards/3_of_dimonds.svg',
     value: 3
 }, {
-    card: '3_of_hearts.svg',
+    card: '../images/cards/3_of_hearts.svg',
     value: 3
 }, {
-    card: '3_of_spades.svg',
+    card: '../images/cards/3_of_spades.svg',
     value: 3
 }, {
-    card: '4_of_clubs.svg',
+    card: '../images/cards/4_of_clubs.svg',
     value: 4
 }, {
-    card: '4_of_dimonds.svg',
+    card: '../images/cards/4_of_dimonds.svg',
     value: 4
 }, {
-    card: '4_of_hearts.svg',
+    card: '../images/cards/4_of_hearts.svg',
     value: 4
 }, {
-    card: '4_of_spades.svg',
+    card: '../images/cards/4_of_spades.svg',
     value: 4
 }, {
-    card: '5_of_clubs.svg',
+    card: '../images/cards/5_of_clubs.svg',
     value: 5
 }, {
-    card: '5_of_dimonds.svg',
+    card: '../images/cards/5_of_dimonds.svg',
     value: 5
 }, {
-    card: '5_of_hearts.svg',
+    card: '../images/cards/5_of_hearts.svg',
     value: 5
 }, {
-    card: '5_of_spades.svg',
+    card: '../images/cards/5_of_spades.svg',
     value: 5
 }, {
-    card: '6_of_clubs.svg',
+    card: '../images/cards/6_of_clubs.svg',
     value: 6
 }, {
-    card: '6_of_dimonds.svg',
+    card: '../images/cards/6_of_dimonds.svg',
     value: 6
 }, {
-    card: '6_of_hearts.svg',
+    card: '../images/cards/6_of_hearts.svg',
     value: 6
 }, {
-    card: '6_of_spades.svg',
+    card: '../images/cards/6_of_spades.svg',
     value: 6
 }, {
-    card: '7_of_clubs.svg',
+    card: '../images/cards/7_of_clubs.svg',
     value: 7
 }, {
-    card: '7_of_dimonds.svg',
+    card: '../images/cards/7_of_dimonds.svg',
     value: 7
 }, {
-    card: '7_of_hearts.svg',
+    card: '../images/cards/7_of_hearts.svg',
     value: 7
 }, {
-    card: '7_of_spades.svg',
+    card: '../images/cards/7_of_spades.svg',
     value: 7
 }, {
-    card: '8_of_clubs.svg',
+    card: '../images/cards/8_of_clubs.svg',
     value: 8
 }, {
-    card: '8_of_dimonds.svg',
+    card: '../images/cards/8_of_dimonds.svg',
     value: 8
 }, {
-    card: '8_of_hearts.svg',
+    card: '../images/cards/8_of_hearts.svg',
     value: 8
 }, {
-    card: '8_of_spades.svg',
+    card: '../images/cards/8_of_spades.svg',
     value: 8
 }, {
-    card: '9_of_clubs.svg',
+    card: '../images/cards/9_of_clubs.svg',
     value: 9
 }, {
-    card: '9_of_dimonds.svg',
+    card: '../images/cards/9_of_dimonds.svg',
     value: 9
 }, {
-    card: '9_of_hearts.svg',
+    card: '../images/cards/9_of_hearts.svg',
     value: 9
 }, {
-    card: '9_of_spades.svg',
+    card: '../images/cards/9_of_spades.svg',
     value: 9
 }, {
-    card: 'ace_of_clubs.svg',
+    card: '../images/cards/ace_of_clubs.svg',
     value: [1, 11]
     
 }, {
-    card: 'ace_of_dimonds.svg',
+    card: '../images/cards/ace_of_dimonds.svg',
     value: [1, 11]
     
 }, {
-    card: 'ace_of_hearts.svg',
+    card: '../images/cards/ace_of_hearts.svg',
     value: [1, 11]
     
 }, {
-    card: 'ace_of_spades.svg',
+    card: '../images/cards/ace_of_spades.svg',
     value: [1, 11]
     
 }, {
-    card: 'jack_of_clubs.svg',
+    card: '../images/cards/jack_of_clubs.svg',
     value: 10
 }, {
-    card: 'jack_of_dimonds.svg',
+    card: '../images/cards/jack_of_dimonds.svg',
     value: 10
 }, {
-    card: 'jack_of_hearts.svg',
+    card: '../images/cards/jack_of_hearts.svg',
     value: 10
 }, {
-    card: 'jack_of_spades.svg',
+    card: '../images/cards/jack_of_spades.svg',
     value: 10
 }, {
-    card: 'king_of_clubs.svg',
+    card: '../images/cards/king_of_clubs.svg',
     value: 10
 }, {
-    card: 'king_of_dimonds.svg',
+    card: '../images/cards/king_of_dimonds.svg',
     value: 10
 }, {
-    card: 'king_of_hearts.svg',
+    card: '../images/cards/king_of_hearts.svg',
     value: 10
 }, {
-    card: 'king_of_spades.svg',
+    card: '../images/cards/king_of_spades.svg',
     value: 10
 }, {
-    card: 'queen_of_clubs.svg',
+    card: '../images/cards/queen_of_clubs.svg',
     value: 10
 }, {
-    card: 'queen_of_dimonds.svg',
+    card: '../images/cards/queen_of_dimonds.svg',
     value: 10
 }, {
-    card: 'queen_of_hearts2.svg',
+    card: '../images/cards/queen_of_hearts2.svg',
     value: 10
 }, {
-    card: 'queen_of_spades.svg',
+    card: '../images/cards/queen_of_spades.svg',
     value: 10
 }];
+
+
+
+
+function preloadImage(url) {
+    var img = new Array();
+    img.src = url;
+    console.log('Image Loaded');
+    
+}
+
+cardData.forEach(function(e){
+    preloadImage(e.card)
+});
+
+
+
+
 
 
 // Work in the console for now. then append results in dom.
