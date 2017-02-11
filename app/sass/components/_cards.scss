@@ -4,33 +4,17 @@
 
 @include respond-to('small'){
 
-.card-front {
+.card-front, .card-front-dealer {
     width: 90px;
     height: 90px;
-    background: url(../images/cards/10_of_clubs.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin-top: -2.5em;
     
-    img {
-    width: 90px;
-    height: 90px;
-    }
   }
 
-  .card-back {
-    width: 90px;
-    height: 85px;
-    margin-top: -2.5em;
-    background: tomato;
-    border: 4px solid white;
-  }
 
-.two {
-    background: url(../images/cards/king_of_clubs.svg);
-    
-}
 
 
 

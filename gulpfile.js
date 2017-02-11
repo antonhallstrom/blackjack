@@ -30,16 +30,16 @@ gulp.task('clean', function(){
 });
 
 // Images Minify
-gulp.task('images', function() {
-    return gulp.src('app/img/**/*.+(png|jpg|gif|svg))')
-        .pipe(plumber())
-        .pipe(cache(imagemin({
-            optimizationLevel: 5,
-            progressive: true, 
-            interlaced: true 
-        })))
-        .pipe(gulp.dest('dist/img'))
-}); 
+gulp.task('images', function () {
+    return gulp.src('app/images/**/*')
+        .pipe(plumber())
+        .pipe(cache(imagemin({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        })))
+        .pipe(gulp.dest('dist/images'))
+});
 
 
  // Concatenate & Minify JS + Babel
@@ -90,6 +90,8 @@ gulp.task('dist', function(){
         .pipe(gulp.dest('dist'));
     gulp.src(['app/css/*'])
         .pipe(gulp.dest('dist/css'));
+    gulp.src('app/images/*')
+        .pipe(gulp.dest('dist/images'));
 });
 
 // Deploy Task (gulp build)

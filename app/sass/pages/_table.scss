@@ -14,14 +14,14 @@ p {
 
 @include respond-to('small'){
 
-// #gameWindow {
-//     background: none;
-//     width: 100%;
-//     height: 100%;
-//     border: 30px solid rgb(31,49,71);
-//     position: absolute;
-//     z-index: 1;
-// }
+#gameWindow {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 100;
+    top: 0; left: 0;
+}
 
 #gameTable {
     box-shadow: 70px 110px 100px rgba(0,0,0,0.80), 0 10px 10px rgba(0,0,0,0.32);

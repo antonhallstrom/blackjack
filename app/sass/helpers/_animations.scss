@@ -11,7 +11,7 @@
 		transform: rotateY(180deg);
 	}
 
-.flip-container, .front, .back {
+.flip-container, .front, .back, .card-front-dealer, .card-back-dealer{
 	width: 320px;
 	height: 480px;
 
@@ -26,7 +26,7 @@
 }
 
 /* hide back of pane during swap */
-.front, .back {
+.front, .back, .card-front-dealer, .card-back-dealer{
 	backface-visibility: hidden;
 	top: 0;
 	left: 0;
@@ -43,18 +43,32 @@
 #card figure {
   margin: 0;
   display: block;
-  
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
 #card .card-front {
-   margin: 0;
-   display: block;
+    margin: 0;
+    display: block;
     width: 90px;
     height: 90px;
-    background: url(../images/cards/10_of_clubs.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -2.5em;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#card .card-front-dealer {
+    margin: 0;
+    display: block;
+    width: 60px;
+    height: 86px;
+    border-radius: 3.5px;
+    background: tomato;
+    border: 4px solid white;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -69,11 +83,24 @@
     height: 86px;
     border-radius: 3.5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    
     margin-top: -2.3em;
     position: absolute;
     background: tomato;
-  transform: rotateY( 180deg );
+    border: 4px solid white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY( 180deg );
+}
+#card .card-back-dealer {
+    width: 90px;
+    height: 90px;
+    margin-top: -2.3em;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY( 180deg );
 }
 
 #card.flipped {
