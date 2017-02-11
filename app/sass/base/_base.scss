@@ -1,0 +1,23 @@
+// Modern border-box applied everywhere.
+html {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+
+// Color Variables 
+$primary-color: rgb(53, 102, 75);
+$primary-color-text: rgb(245, 218, 85);
+
+
