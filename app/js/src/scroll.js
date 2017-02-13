@@ -24,12 +24,11 @@ const dealerCardZone = document.querySelector('#dealerCardZone');
 
 
 
-$('#dealerCardZone').on('click','#card', function(e) {
-    e.preventDefault();
+// $('#dealerCardZone').on('click','#card', function(e) {
+//     e.preventDefault();
 	
-	$( this ).toggleClass('flipped');
-});
-
+// 	$( this ).toggleClass('flipped');
+// });
 
 
 

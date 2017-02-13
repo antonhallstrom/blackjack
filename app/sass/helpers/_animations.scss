@@ -1,44 +1,21 @@
 
 
-
-
-.flip-container {
-	perspective: 1000px;
-    z-index: 1;
-}
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
-
-.flip-container, .front, .back, .card-front-dealer, .card-back-dealer{
-	width: 320px;
-	height: 480px;
-
-}
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back, .card-front-dealer, .card-back-dealer{
-	backface-visibility: hidden;
-	top: 0;
-	left: 0;
-}
-
 #card {
   width: 100%;
   height: 100%;
-  margin-left: 1em;
   transform-style: preserve-3d;
   transition: transform 1s;
+  margin-left: 1em;
 }
+
+.card-dealer {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  margin-right: -4em;
+}
+
 
 #card figure {
   margin: 0;
@@ -46,6 +23,15 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+}
+
+.card-dealer figure {
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
 }
 
 #card .card-front {
@@ -56,9 +42,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -2.5em;
     position: absolute;
     backface-visibility: hidden;
+    margin-top: -2.6em;
 }
 
 #card .card-front-dealer {
@@ -72,9 +58,22 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -2.5em;
     position: absolute;
     backface-visibility: hidden;
+    margin-top: 1.2em;
+}
+
+// Closed To Card-Back
+#card .closed {
+  transform: rotateY( 0deg );
+
+
+}
+
+// Open to Card-Front. T
+#card .open {
+   transform: rotateY( 180deg );
+    
 }
 
 
@@ -93,16 +92,17 @@
     transform: rotateY( 180deg );
 }
 #card .card-back-dealer {
-    width: 90px;
-    height: 90px;
-    margin-top: -2.3em;
+    margin: 0;
+    width: 60px;
+    height: 86px;
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: rotateY( 180deg );
+   margin-top: 0.1em;
 }
 
 #card.flipped {
   transform: rotateY( 180deg );
+  margin-right: -5.2em;
 }

@@ -11,15 +11,15 @@
 
 // This might not be nessecary
 const playerHand = [];
+const dealerHand = [];
 // playerHand.push(card); 
 // Deals to players hand, now we can keep track of the order of cards. dealt.
 // And what cards belong to player.
 
 
-function dealsToPlayer() {
+function dealsToPlayer(split = false) {
     // Deals top card to player, !need to check if user needs split.
      const card = deck.splice(0,1)[0];
-     
      // Creating a card
      const cardMarkup = `
       <div id="card">
@@ -28,51 +28,34 @@ function dealsToPlayer() {
         <figure class="card-back"></figure>
       </div>
      `;
-     $('#cardHolder').append(cardMarkup);
-};
 
-function dealsToDealer() {
-    // Deals top card to dealer face-down
-     const card = deck.splice(0,1)[0];
-    // Creating a card
-     const cardMarkup = `
-      <div id="card">
-        <figure class="card-front-dealer">
-        </figure>
-        <figure class="card-back-dealer" style="background-image: url(${card.img})"></figure>
-      </div>
-     `;
-     $('#dealerCardZone').append(cardMarkup);
-
+     split ? $('#splitZone').append(cardMarkup) : $('#cardHolder').append(cardMarkup);
 };
 
 
-// const preloadImage = url => 
-//     new Promise((resolve, reject) => {
-//     const img = new Image().src = url;
-//     
-//     img.onload = resolve(img);
-//     img.onerror = reject;
-// })
+function dealsToDealer(open = true) {
+  // Deals top card to dealer face-down
+  const card = deck.splice(0, 1)[0];
+  dealerHand.push(card);
+  // Creating a card
+  const cardMarkup = `
+      <div id="card" class="card-dealer">
+        <figure class="card-front-dealer ${open ? 'open' : 'closed'}">
+        </figure>
+        <figure class="card-back-dealer ${open ? 'closed' : 'open'}" style="background-image: url(${card.img})"></figure>
+      </div>
+     `;
+  $('#dealerCardZone').append(cardMarkup);
 
-// Promise.all(cardData.map(card => 
-// preloadImage(card.img))).then(res => 
-// console.log('All Images Loaded Successfully'));
+}
+
+// Should only target the first card.
+function flipCard() {    
+  $('#card').addClass('flipped');
+};
 
 
- const preloadImage = url => new Promise((resolve, reject) => {
-    const img = new Image();
-    img.src = url;
-    setTimeout(() => {
-        img.onload = resolve(img);
-        img.onerror = reject;
-    }, 3000)
-     // img.onload = resolve(img);
-    // img.onerror = reject;
-});
 
-Promise.all(cardData.map(card => preloadImage(card.card))).then(res => {
 
-    $( "#gameWindow" ).remove();
 
-});
+
