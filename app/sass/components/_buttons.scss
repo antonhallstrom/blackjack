@@ -1,5 +1,5 @@
 
-.hit-button, .stay-button {
+.hit-button, .stay-button, .split-button, .double-button {
     height: 50px;
     width: 100px;
     border: 2px solid gold;
@@ -9,4 +9,69 @@
     box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
     color: white;
     font-family: Roboto;
+}
+
+.addSub-tooltip {
+    height: 50px;
+    width: 100px;
+    border: 2px solid gold;
+    border-radius: 2px;
+    background: linear-gradient(dodgerblue, rgb(31,49,71));
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
+    color: white;
+    font-family: Roboto;
+    position: fixed;
+    margin-top: -2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s;
+    opacity: 0;
+    text-align: center;
+}
+
+.show-tooltip {
+     margin-top: -5em;
+    transition: 0.2s;
+    opacity: 1;
+}
+
+.start-button {
+     
+    margin: auto;
+    height: 50px;
+    width: 100px;
+    border: 2px solid gold;
+    border-radius: 2px;
+    background: darkorange;
+    background: linear-gradient(darkorange, orangered);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
+    color: white;
+    font-family: Roboto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1050;
+    cursor: pointer;
+}
+
+.start-window {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding: 2em;
+    width: 450px;
+    height: 250px;
+    background: black;
+    background: linear-gradient(rgb(21,21,21), rgb(51,51,51));
+    border: 2px solid gold;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

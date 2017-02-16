@@ -11,8 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body>
+        <div class="start-window">
+             <button class="start-button">Start</button>
+        </div>
+        
        
         <div id="gameWindow"></div>
         <nav>
@@ -33,9 +38,7 @@
                     </div>
 
                     <div id="splitBetZone">
-                        <div class="chip"></div>
-                        <div class="fifthy"></div>
-                        <div class="tweenty"></div>
+                        
                     </div>
 
                     <div id="splitZone">
@@ -43,7 +46,7 @@
                         
                     </div>
                     <div id="playerBetZone">
-                        
+                         
                     </div>  
                     <div id="cardHolder">
                     
@@ -55,11 +58,13 @@
             </div>
         <div class="panel-bottom"></div>
         <div class="bet-menu">
-             <button class="stay-button">Split</button>
-            <button class="hit-button">Double</button>
+             <button class="split-button">Split</button>
+            <button class="double-button">Double</button>
+            <div class="addSub-tooltip"><img class="betAniChip" src="images/chip-dollar.svg" alt=""><h4 class="addSub-text"></h4></div>
             <div class="total-bar"><img src="images/chip-dollar.svg" alt=""><h2 id="balance">1050.00</h2></div>
             <button class="stay-button">Stay</button>
-            <button class="hit-button">Hit</button>
+            <button id="open-event" class="hit-button"  title="Ask dealer for another card">Hit</button>
+
         </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

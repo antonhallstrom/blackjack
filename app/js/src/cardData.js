@@ -111,58 +111,72 @@ const cardData = [
     value: 9
 }, {
     img: 'images/cards/ace_of_clubs.svg',
-    value: [1, 11]
+    value: 11
     
 }, {
   img: 'images/cards/ace_of_diamonds.svg',
-    value: [1, 11]
+    value: 11
     
 }, {
     img: 'images/cards/ace_of_hearts.svg',
-    value: [, 11]
+    value: 11
     
 }, {
     img: 'images/cards/ace_of_spades.svg',
-    value: [1, 11]
+    value: 11
     
 }, {
-    img: 'images/cards/jack_of_clubs.svg',
+    img: 'images/cards/jack_of_clubs2.svg',
     value: 10
 }, {
-    img: 'images/cards/jack_of_diamonds.svg',
+    img: 'images/cards/jack_of_diamonds2.svg',
     value: 10
 }, {
-    img: 'images/cards/jack_of_hearts.svg',
+    img: 'images/cards/jack_of_hearts2.svg',
     value: 10
 }, {
-    img: 'images/cards/jack_of_spades.svg',
+    img: 'images/cards/jack_of_spades2.svg',
     value: 10
 }, {
-    img: 'images/cards/king_of_clubs.svg',
+    img: 'images/cards/king_of_clubs2.svg',
     value: 10
 }, {
-    img: 'images/cards/king_of_diamonds.svg',
+    img: 'images/cards/king_of_diamonds2.svg',
     value: 10
 }, {
-    img: 'images/cards/king_of_hearts.svg',
+    img: 'images/cards/king_of_hearts2.svg',
     value: 10
 }, {
-    img: 'images/cards/king_of_spades.svg',
+    img: 'images/cards/king_of_spades2.svg',
     value: 10
 }, {
-    img: 'images/cards/queen_of_clubs.svg',
+    img: 'images/cards/queen_of_clubs2.svg',
     value: 10
 }, {
-    img: 'images/cards/queen_of_diamonds.svg',
+    img: 'images/cards/queen_of_diamonds2.svg',
     value: 10
 }, {
-    img: 'images/cards/queen_of_hearts.svg',
+    img: 'images/cards/queen_of_hearts2.svg',
     value: 10
 }, {
-    img: 'images/cards/queen_of_spades.svg',
+    img: 'images/cards/queen_of_spades2.svg',
     value: 10
 }];
 
+const testCardData = [
+{
+  img: 'images/cards/ace_of_diamonds.svg',
+    value: 11
+    
+},{
+    img: 'images/cards/5_of_diamonds.svg',
+    value: 5
+}, {
+    img: 'images/cards/queen_of_spades2.svg',
+    value: 10
+}
+
+];
 
 
  const preloadImage = url => new Promise((resolve, reject) => {
