@@ -36,3 +36,17 @@
        margin-left: 1em;
    }
 }
+
+.card-menu {
+   background: linear-gradient(rgb(21,21,21), rgb(51,51,51));
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    z-index: 2000;
+    position: fixed;
+    padding: 2em;
+    border: 2px solid gold;
+    box-shadow: 70px 50px 100px rgba(0,0,0,0.80), 0 10px 10px rgba(0,0,0,0.32);
+    right: 5em;
+    top: 5em;
+}

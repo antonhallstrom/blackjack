@@ -32,9 +32,7 @@ $('.start-button').on('click', function() {
      }, 500);
     });
 
-$('.hit-button').on('click', function() {
-    
-});
+
 
 // Need to count value in dealer array.
 $('.stay-button').on('click', function() {

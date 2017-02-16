@@ -168,12 +168,21 @@ const testCardData = [
   img: 'images/cards/ace_of_diamonds.svg',
     value: 11
     
-},{
-    img: 'images/cards/5_of_diamonds.svg',
-    value: 5
 }, {
     img: 'images/cards/queen_of_spades2.svg',
+    value: 11
+}, {
+  img: 'images/cards/ace_of_diamonds.svg',
+    value: 3
+    
+} , {
+  img: 'images/cards/ace_of_diamonds.svg',
     value: 10
+    
+},  {
+  img: 'images/cards/ace_of_diamonds.svg',
+    value: 3
+    
 }
 
 ];
