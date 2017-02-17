@@ -22,3 +22,4 @@ function shuffle(array) {
 
 shuffle(deck);
 
+

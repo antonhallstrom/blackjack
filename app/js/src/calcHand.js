@@ -1,23 +1,6 @@
 
 
 
-function getSum(acc, cur) {
-    return acc.value + cur.value;
-}
-
-function compareHand(arr) {
-    return arr.reduce(getSum);
-}
-
-
-function filterAce(arr) {
-    const sum = arr;
-    if(arr.some((e) => e === 12)) {
-        return (arr.reduce(getSum) - 11 <= 21);
-    }
-    return true;
-}
-
 
 function findBestHand(handA, handB) {
     return Math.max(handA, handB);
@@ -27,58 +10,88 @@ function checkBestHand(handA, handB) {
   return findBestHand(compareHand(handA), compareHand(handB));
 }
 
+function displayDealerHand() {
+    dealerHand.map(function(e){
+      if (dealerHand.indexOf(e) !== 0){
+        $('#dealer-stats').append(' ' + e.value);
+      } else false;
+    });
+}
+
+function displayTurn() {
+    $('#turn').text('Round: ' + turn);
+}
+
+function revealAllDealerHand() {
+    $('#dealer-stats').text('Dealer Hand: ' + cardStatus(dealerHand));
+}
+
+function displayPlayerHand() {
+    $('#player-stats').text('Player Hand: ' + cardStatus(playerHand));
+}
+
+function displayPlayerSplit() {
+    $('#split-stats').text('Player Split: ' + cardStatus(playerSplitHand));
+ }
+
+function updateForOneCard() {
+      $('#split-stats').text('Player Split: ' + playerSplitHand[0].value);
+      $('#player-stats').text('Player Hand: ' + playerHand[0].value);
+}
 
 function cardStatus(playerCards) {
   const firstCardValue = playerCards[0].value;
   const secondCardValue = playerCards[1].value;
   const totalValue = playerCards.reduce((last, current) => last + current.value, 0);
   const totalValueWithAce = totalValue + (playerCards.some(card => card.value === 1) ? 10 : 0);
-  const count = playerCards.reduce(function(acc, cur) {
-    return acc + (cur.value === 11);
-  }, 0);
-  if (firstCardValue === 10 && secondCardValue === 1 ||
-      firstCardValue === 1 && secondCardValue === 10) return 'blackjack';
-  if (totalValueWithAce === 21 || totalValue === 21) return '21';
-  if (totalValueWithAce < 21 || totalValue < 21) return 'keep going?', totalValue;
-  if (totalValueWithAce > 21 || totalValue > 21) {
-     if((totalValueWithAce - (count * 10) + validateSoftHand(count, totalValueWithAce)) < 21) {
-        return console.log(`keep soft hand of ${totalValueWithAce - (count * 10) + validateSoftHand(count, totalValueWithAce)}`);
-    }  else return console.log("bust");
-  } else return console.log("bust");
+  if ( firstCardValue === 10 && secondCardValue === 1 ||
+    firstCardValue === 1 && secondCardValue === 10) return 'blackjack';
+  if (totalValueWithAce === 21 || totalValue === 21) return '21', totalValueWithAce;
+  if (totalValueWithAce < 21 || totalValue < 21) return 'keep going?', totalValueWithAce;
+  if (totalValueWithAce > 21 || totalValue > 21) return 'FATTY FATTY', totalValueWithAce;
 }
 
-function validateSoftHand(count,totalValueWithAce) {
-    console.log(totalValueWithAce);
-    if(count === 4 || count === 3 || count === 2 || count === 1) {
-        if((totalValueWithAce - (count * 10)) < 21) {
-            return  0;
-        } return 10;
-    } 
+function dealerDraw() {
+   const totalValue = cardStatus(dealerHand);
+ setTimeout( () => {
+   revealAllDealerHand();
+  if(totalValue === 'blackjack') return 'blackjack'
+  if(totalValue === 21) return '21'
+  if(totalValue > 17 && totalValue < 21)  return 'stay!'
+  if(totalValue > 21) return 'busted'
+  if(totalValue <= 17) {
+  setTimeout(dealsToDealer(open = true),revealAllDealerHand(), dealerDraw(), 1200);
+  }
+  },1000)
+ }
+
+
+
+function evaluateBestHand() {
+    setTimeout(() => {
+  if(cardStatus(playerHand) === 'blackjack') {
+      flipCard(); 
+      dealerDraw();
+    if (cardStatus(dealerHand) === 'blackjack') {
+        $('.display-result').text(cardStatus(playerHand) + '! Tie!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance + reduceBets());
+        setTimeout(cleanTable,2000)
+        setTimeout(startTurn,3000)
+     } else {
+         $('.display-result').text(cardStatus(playerHand) + '! You win!');
+         animationDisplayResult(2500);
+         renderBalance(playerBalance + timesTwo(reduceBets()));
+         changeTurn();
+         setTimeout(cleanTable,2000)
+         setTimeout(startTurn,3000)
+     }
+  } else {
+      $('.display-result').text('Sorry, no blackjack! Keep going?');
+       animationDisplayResult(2500);
+       enableButtons();
+  } 
+  },500);
 }
 
-
-
-function giveToDealer() {
-    while (cardStatus(dealerHand) < 17) {
-          dealsToDealer(open = true);
-    }
-    return console.log(cardStatus(dealerHand));
-}
-
-// compare playerHand, with the card status.
-// if this cardStatus winner or lose.
-// Also to concider ace ace 10, 3 11, 14. check for each -10, if under < 21., while loop.
-// check for win, if hand ace. count, up < 21. thats its total value.
-
-// dealsToDealer(open = true);
-
-
-// recursion
-// function giveToDealer() {
-//     if (cardStatus(dealerHand) < 17) {
-//          dealsToDealer(open = true);
-//          return  giveToDealer();
-//     } else console.log(cardStatus(dealerHand));
-// };
-
-
+ 

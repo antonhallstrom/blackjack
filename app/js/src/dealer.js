@@ -23,10 +23,6 @@ const validSplit = {
     }
 };
 
-// playerHand.push(card); 
-// Deals to players hand, now we can keep track of the order of cards. dealt.
-// And what cards belong to player.
-
 
 function dealsToPlayer(split) {
     // Deals top card to player, !need to check if user needs split.
@@ -43,7 +39,6 @@ function dealsToPlayer(split) {
 
      split ? $('#splitZone').append(cardMarkup) : $('#cardHolder').append(cardMarkup);
 };
-
 
 function dealsToDealer(open = true) {
   // Deals top card to dealer face-down
@@ -71,26 +66,35 @@ function flipCard() {    
 // take array if want to change rule.
 // if split true, can only by applied once.
 function validateSplit(array, maxSplit) {
-    if(array[0].value !== array[1].value && maxSplit === false && playerBalance >= maxBet) {
+    if(array[0].value === array[1].value && maxSplit === false && playerBalance >= maxBet) {
          validSplit.state = true;
           placeBet(maxBet);
            getBetChip(maxBet, true);
-            playerSplitHand.push(array.splice(0,1)[0]);
+           playerSplitHand = playerHand.slice(0, 1);
+            playerHand.splice(0,1);
             $('#cardHolder').children(':first-child').appendTo('#splitZone');
+            setTimeout(updateForOneCard, 300);
     } else false;
+   
  }
 
 // Event listner for button.
 $('.split-button').on('click', () => {
     validateSplit(playerHand, validSplit.state);
+    
 });
 
 
 
 $('.hit-button').on('click', function() {
-    ifSplitTrue();
+    if(validSplit.state === false) {
+        $('.split-button').attr("disabled", "disabled").addClass('button-disabled')
+        dealsToPlayer(open = false);
+        displayPlayerHand();
+    } else return ifSplitTrue();
 });
 
 function ifSplitTrue() {
-    validSplit.state === true ? dealsToPlayer(open = true) + dealsToPlayer(open = false) : false;
+    validSplit.state === true ? dealsToPlayer(open = true) + dealsToPlayer(open = false): false;
+     setTimeout(displayPlayerHand(),displayPlayerSplit(), 1000); 
 }

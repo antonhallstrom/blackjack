@@ -5,11 +5,19 @@
     border: 2px solid gold;
     border-radius: 2px;
     background: darkorange;
-    background: linear-gradient(darkorange, orangered);
+    background: linear-gradient(rgba(255,140,0,1.0), rgba(255,69,0,1.0));
     box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
     color: white;
     font-family: Roboto;
+     transition: 0.5s ease-in-out;
 }
+
+.button-disabled {
+    transition: 0.5s ease-in-out;
+    background: linear-gradient(rgba(255,140, 0,0.72), rgba(255,69,0,0.72));
+    color: rgba(255,255,255,0.5);
+} 
+
 
 .addSub-tooltip {
     height: 50px;
@@ -27,7 +35,6 @@
     align-items: center;
     transition: 0.1s;
     opacity: 0;
-    text-align: center;
 }
 
 .show-tooltip {
@@ -52,7 +59,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 1050;
+    z-index: 2000;
     cursor: pointer;
 }
 

@@ -111,19 +111,19 @@ const cardData = [
     value: 9
 }, {
     img: 'images/cards/ace_of_clubs.svg',
-    value: 11
+    value: 1
     
 }, {
   img: 'images/cards/ace_of_diamonds.svg',
-    value: 11
+    value: 1
     
 }, {
     img: 'images/cards/ace_of_hearts.svg',
-    value: 11
+    value: 1
     
 }, {
     img: 'images/cards/ace_of_spades.svg',
-    value: 11
+    value: 1
     
 }, {
     img: 'images/cards/jack_of_clubs2.svg',
@@ -166,22 +166,22 @@ const cardData = [
 const testCardData = [
 {
   img: 'images/cards/ace_of_diamonds.svg',
-    value: 11
+    value: 1
     
 }, {
     img: 'images/cards/queen_of_spades2.svg',
-    value: 11
+    value: 1
 }, {
-  img: 'images/cards/ace_of_diamonds.svg',
-    value: 3
-    
-} , {
   img: 'images/cards/ace_of_diamonds.svg',
     value: 10
     
+} , {
+  img: 'images/cards/ace_of_diamonds.svg',
+    value: 1
+    
 },  {
   img: 'images/cards/ace_of_diamonds.svg',
-    value: 3
+    value: 1
     
 }
 
