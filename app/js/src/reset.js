@@ -32,6 +32,7 @@ function clearHands() {
     playerHand = [];
     dealerHand = [];
     playerSplitHand = [];
+    playerBets = [];
 }
 
 function clearStats() {

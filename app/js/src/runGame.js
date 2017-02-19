@@ -4,13 +4,28 @@
 $('.start-button').on('click', startTurn);
 
  function startTurn() {
-    $('.start-window').remove();
     
+     
+     if(validateBet(maxBet) === 0) {
+        $('.display-result').text('Sorry, you dont have enough chips! Max Bet is ' + maxBet);
+         animationDisplayResult(3500);
+         
+         disableButtons();
+         setTimeout(() => {
+              $('.display-result').text('Thanks Come Again!');
+         animationDisplayResult(3500);
+         },3800);
+    } else {
+    $('.start-window').remove();
+    disableButtons();
     displayTurn();
+    playerBets = [];
+    changeTurn();
     setTimeout(() => {
-        
+        displayMaxBet();
         placeBet(maxBet);
         getBetChip(maxBet, false);
+        
         $('.addSub-tooltip').addClass('show-tooltip');
         
         setTimeout(dealsToPlayer, 1200);
@@ -37,9 +52,9 @@ $('.start-button').on('click', startTurn);
         
         setTimeout(evaluateBestHand, 5000);
 
-     }, 500);
+     }, 1500);
+    }
     };
-  
   
 
 
@@ -52,12 +67,13 @@ $('.stay-button').on('click', function() {
 });
 
 
-(function disableButtons() {
+function disableButtons() {
     $('.hit-button').attr("disabled", "disabled");
     $('.split-button').attr("disabled", "disabled");
     $('.double-button').attr("disabled", "disabled");
     $('.stay-button').attr("disabled", "disabled");
-})();
+} disableButtons();
+
 
 function enableButtons() {
     $('.hit-button').removeAttr("disabled");

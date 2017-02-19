@@ -10,6 +10,9 @@ function renderBalance(playerBalance) {
     $('#balance').text(playerBalance + '.00');
 }
 
+
+
+
 function changeTurn() {
     maxBet = turn++ < 4 ? 20 : 50;
 }
@@ -32,7 +35,7 @@ function validateBet(bet) {
 }
 
 function placeBet(bet) {
-    renderBalance(playerBalance = playerBalance - validateBet(bet)),
+    renderBalance(playerBalance = playerBalance - validateBet(bet));
     getOrplaceBetAnimation(bet);
 }
 
@@ -58,18 +61,5 @@ function reduceBets() {
    return playerBets.reduce(getSum,0);
 }
 
-function payToPlayer() {
-    
-}
-
-// BlackJack
-function paysThreeToTwo() {
-    
-}
-
-// Insurance
-function paysTwoToOne() {
-    
-}
 
 

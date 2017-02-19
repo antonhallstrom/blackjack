@@ -30,7 +30,11 @@ function displayPlayerHand() {
     $('#player-stats').text('Player Hand: ' + cardStatus(playerHand));
 }
 
-function displayPlayerSplit() {
+function displayMaxBet() {
+    $('#maxBet-stats').text('Max Bet: $ ' + maxBet);
+ }
+
+ function displayPlayerSplit() {
     $('#split-stats').text('Player Split: ' + cardStatus(playerSplitHand));
  }
 
@@ -51,22 +55,74 @@ function cardStatus(playerCards) {
   if (totalValueWithAce > 21 || totalValue > 21) return 'FATTY FATTY', totalValueWithAce;
 }
 
+// Recursion
 function dealerDraw() {
    const totalValue = cardStatus(dealerHand);
  setTimeout( () => {
    revealAllDealerHand();
-  if(totalValue === 'blackjack') return 'blackjack'
-  if(totalValue === 21) return '21'
-  if(totalValue > 17 && totalValue < 21)  return 'stay!'
-  if(totalValue > 21) return 'busted'
+  if(totalValue === 'blackjack') return compareHands();
+  if(totalValue === 21) return compareHands();
+  if(totalValue > 17 && totalValue < 21)  return compareHands();
+  if(totalValue > 21) return compareHands();
   if(totalValue <= 17) {
   setTimeout(dealsToDealer(open = true),revealAllDealerHand(), dealerDraw(), 1200);
   }
   },1000)
  }
 
+function compareHands() {
+    const playerValue = cardStatus(playerHand);
+    const dealerValue = cardStatus(dealerHand);
 
+    if(dealerValue === 'blackjack') {
+        $('.display-result').text('Dealer ' + cardStatus(dealerHand) + '! Dealer Wins!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance = playerBalance);
 
+       setTimeout(setup, 2500);
+    }
+
+    if(dealerValue > 21) {
+        $('.display-result').text('Dealer Bust! You win!');
+         animationDisplayResult(2500);
+         renderBalance(playerBalance = playerBalance + timesTwo(reduceBets()));
+
+         setTimeout(setup, 2500);
+    }
+    if(playerValue === dealerValue || dealerValue === playerValue) {
+        $('.display-result').text(cardStatus(playerHand) + '! Tie!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance = playerBalance + reduceBets());
+
+        setTimeout(setup, 2500);
+    }
+
+    if(playerValue < dealerValue && dealerValue >= 17 && dealerValue <= 21) {
+         $('.display-result').text(cardStatus(playerHand) + '! Dealer Wins!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance = playerBalance);
+        
+        setTimeout(setup, 2500);
+    }
+
+if(playerValue >= 17 && playerValue <= 21 && dealerValue >= 17 && dealerValue <= 21) {
+    if(dealerValue > playerValue) {
+        $('.display-result').text(cardStatus(playerHand) + '! Dealer Wins!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance = playerBalance);
+    
+        setTimeout(setup, 2500);
+    } else {
+        $('.display-result').text(cardStatus(playerHand) + '! You win! This');
+         animationDisplayResult(2500);
+         renderBalance(playerBalance = playerBalance + timesTwo(reduceBets()));
+     
+         setTimeout(setup, 2500);
+    }
+ }
+}
+
+// For blackjack
 function evaluateBestHand() {
     setTimeout(() => {
   if(cardStatus(playerHand) === 'blackjack') {
@@ -75,16 +131,14 @@ function evaluateBestHand() {
     if (cardStatus(dealerHand) === 'blackjack') {
         $('.display-result').text(cardStatus(playerHand) + '! Tie!');
         animationDisplayResult(2500);
-        renderBalance(playerBalance + reduceBets());
-        setTimeout(cleanTable,2000)
-        setTimeout(startTurn,3000)
+        renderBalance(playerBalance = playerBalance + reduceBets());
+        setTimeout(setup, 2500);
      } else {
-         $('.display-result').text(cardStatus(playerHand) + '! You win!');
+         $('.display-result').text(cardStatus(playerHand) + '! You win! or');
          animationDisplayResult(2500);
-         renderBalance(playerBalance + timesTwo(reduceBets()));
-         changeTurn();
-         setTimeout(cleanTable,2000)
-         setTimeout(startTurn,3000)
+         renderBalance(playerBalance = playerBalance + timesTwo(reduceBets()));
+     
+         setTimeout(setup, 2500);
      }
   } else {
       $('.display-result').text('Sorry, no blackjack! Keep going?');
@@ -94,4 +148,28 @@ function evaluateBestHand() {
   },500);
 }
 
- 
+
+
+function evaluateOnHit() {
+    if(cardStatus(playerHand) > 21) {
+        disableButtons();
+        displayPlayerHand();
+        $('.display-result').text(cardStatus(playerHand) + '! You Bust!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance = playerBalance);
+        setTimeout(setup, 2500);
+      } else {
+          console.log('puke');
+      }
+};
+
+function setup() {
+        setTimeout(cleanTable,2000)
+        setTimeout(startTurn,3000)
+}
+
+
+        // Make a curry of thats display text.
+        // place bet, cant be bet over max bet. 
+        // and then have a min bet.
+

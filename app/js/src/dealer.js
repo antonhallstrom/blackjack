@@ -87,10 +87,12 @@ $('.split-button').on('click', () => {
 
 
 $('.hit-button').on('click', function() {
+
     if(validSplit.state === false) {
         $('.split-button').attr("disabled", "disabled").addClass('button-disabled')
         dealsToPlayer(open = false);
         displayPlayerHand();
+        evaluateOnHit();
     } else return ifSplitTrue();
 });
 
