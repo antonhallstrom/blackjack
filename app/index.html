@@ -14,27 +14,28 @@
     </head>
     <body>
         <div class="start-window">
-
+            <h4>Place bets then press start to begin</h4>
              <button class="start-button">Start</button>
         </div>
         <div id="draggable" class="ui-widget-content card-menu">
-                <div id="turn" class="stats">Round:</div>
-                <div id="maxBet-stats" class="stats">Max Bet:</div>
+                <div id="turn" class="stats green-display">Round: 1</div>
+                <div id="maxBet-stats" class="stats lightblue-display">Max Bet:</div>
+                <div id="minBet-stats" class="stats red-display">Min Bet:</div>
                 <div id="dealer-stats" class="stats purple-display">Dealer Hand:</div>
                 <div id="player-stats" class="stats teal-display">Player Hand:</div>
                 <div id="split-stats" class="stats yellow-display">Player Split:</div>
-                <div id="bet-stats" class="stats yellow-display">Player Bets:</div>
+                <div id="bet-stats" class="stats darkblue-display">Player Bets:</div>
         </div>
         
         <div id="place-bet-menu">
             <i class="material-icons select-arrow">navigation</i>
-            <div class="one-menu"></div>
-            <div class="two-menu"></div>
-            <div class="five-menu"></div>
-            <div class="ten-menu"></div>
-            <div class="tweenty-menu"></div>
-            <div class="fifthy-menu"></div>
-            <div class="hundred-menu"></div>
+            <button id="bet-one" class="one-menu"></button>
+            <button id="bet-two" class="two-menu"></button>
+            <button id="bet-five" class="five-menu"></button>
+            <button id="bet-ten" class="ten-menu"></button>
+            <button id="bet-tweenty" class="tweenty-menu"></button>
+            <button id="bet-fifthy" class="fifthy-menu"></button>
+            <button id="bet-hundred" class="hundred-menu"><buttonv>
         </div>
 
         <div id="gameWindow"></div>

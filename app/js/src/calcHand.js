@@ -28,6 +28,10 @@ function displayMaxBet() {
     $('#maxBet-stats').text('Max Bet: $ ' + maxBet);
  }
 
+ function displayMinBet() {
+    $('#minBet-stats').text('Min Bet: $ ' + minBet);
+ }
+
  function displayPlayerSplit() {
     $('#split-stats').text('Player Split: ' + cardStatus(playerSplitHand));
  }
@@ -147,33 +151,6 @@ function evaluateFirstBlackJack() {
     }
 }
 
-function evaluateBestHand() {
-    setTimeout(() => {
-  if(cardStatus(playerHand) === 'blackjack') {
-      flipCard(); 
-      dealerDraw();
-    if (cardStatus(dealerHand) === 'blackjack') {
-        $('.display-result').text(cardStatus(playerHand) + '! Tie!');
-        animationDisplayResult(2500);
-        renderBalance(playerBalance = playerBalance + reduceBets());
-        setTimeout(setup, 2500);
-
-     } else {
-         $('.display-result').text(cardStatus(playerHand) + '! You win! or');
-         animationDisplayResult(2500);
-         renderBalance(playerBalance = playerBalance + timesTwo(reduceBets()));
-     
-         setTimeout(setup, 2500);
-     }
-  } else {
-      $('.display-result').text('Sorry, no blackjack! Keep going?');
-       animationDisplayResult(2000);
-       enableButtons();
-  } 
-  },500);
-}
-
-
 
 function evaluateOnHit() {
     if(cardStatus(playerHand) > 21) {
@@ -181,18 +158,19 @@ function evaluateOnHit() {
         displayPlayerHand();
         $('.display-result').text(cardStatus(playerHand) + '! You Bust!');
         animationDisplayResult(2500);
-        renderBalance(playerBalance = playerBalance);
+        renderBalance(playerBalance - reduceBets());
         setTimeout(setup, 2500);
         
       } else {
-          console.log('puke');
+          $('.display-result').text('Keep going?');
+          animationDisplayResult(2000);
       }
 };
 
 function setup() {
     cleanTable();
-    startTurn();
-    
+     enableBetButtons();
+    $('.start-window').addClass('show-start-window');
 }
 
 

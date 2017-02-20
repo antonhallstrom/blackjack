@@ -1,12 +1,25 @@
-// function that initiate after user clicks start.
-// Ready to play.
-// And got some rules avliable to him or her.
-$('.start-button').on('click', startTurn);
 
+   displayMaxBet();
+   displayMinBet();
+ 
+
+$('.start-button').on('click', () => {
+    if(reduceBets() < minBet) {
+        $('.display-result').text('Bet must be equal or higher than Min Bet!');
+         animationDisplayResult(2000);
+    } else {
+     startTurn();
+     disableBetButtons();
+    }
+  });
+
+
+$('.start-window').addClass('show-start-window');
  function startTurn() {
-     $('.start-window').remove();
-   
+     $('.start-window').removeClass('show-start-window');
+  
     displayMaxBet();
+    displayMinBet();
 
      if(validateBet(maxBet) === 0) {
         $('.display-result').text('Sorry, you dont have enough chips! Max Bet is ' + maxBet);
@@ -27,24 +40,15 @@ $('.start-button').on('click', startTurn);
 
 
         displayMaxBet();
-        placeBet(maxBet);
-        getBetChip(maxBet, false);
+        displayMinBet();
         displayPlayerBets();
-        $('.addSub-tooltip').addClass('show-tooltip');
+        
         
     const runTurn = setTimeout(() => {
         console.log('run turn started')
-        //  setTimeout(dealsToPlayer, 1400);
-       
-        // setTimeout(dealsToDealer(false), 1200);
+   
 
-        setTimeout(() => {
-            $('.addSub-tooltip').removeClass('show-tooltip');
-        }, 700);
-
-        // setTimeout(dealsToPlayer, 1600);
-
-        // setTimeout(dealsToDealer, 1800);
+     
         dealsToDealer(false);
         dealsToPlayer();
         dealsToDealer();
@@ -74,7 +78,6 @@ $('.start-button').on('click', startTurn);
 
 
 
-
 $('.stay-button').on('click', function() {
      flipCard();
      return dealerDraw();
@@ -94,5 +97,25 @@ function enableButtons() {
     $('.split-button').removeAttr("disabled");
     $('.double-button').removeAttr("disabled");
     $('.stay-button').removeAttr("disabled");
+}
+
+function disableBetButtons() {
+    $('#bet-two').attr("disabled", "disabled");
+    $('#bet-five').attr("disabled", "disabled");
+    $('#bet-one').attr("disabled", "disabled");
+    $('#bet-ten').attr("disabled", "disabled");
+    $('#bet-tweenty').attr("disabled", "disabled");
+    $('#bet-fifthy').attr("disabled", "disabled");
+    $('#bet-hundred').attr("disabled", "disabled");
+}
+
+function enableBetButtons() {
+    $('#bet-two').removeAttr("disabled");
+    $('#bet-five').removeAttr("disabled");
+    $('#bet-one').removeAttr("disabled");
+    $('#bet-ten').removeAttr("disabled");
+    $('#bet-tweenty').removeAttr("disabled");
+    $('#bet-fifthy').removeAttr("disabled");
+    $('#bet-hundred').removeAttr("disabled");
 }
 

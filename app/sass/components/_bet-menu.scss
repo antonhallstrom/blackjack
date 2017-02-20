@@ -27,15 +27,17 @@
    font-size: 1.9em;
    opacity: 0;
    position: fixed;
-   margin-top: -0.5em;
-   margin-left: 2.7em;
+   margin-top: -1.5em;
+   margin-left: 3.3em;
    transition: 0.2s;
+   z-index: 2000;
 }
 
 .show-double-animation {
-    margin-top: -2em;
+    margin-top: -3em;
     opacity: 1;
     transition: 0.2s;
+    z-index: 2000;
 }
 
 .select-arrow {
@@ -89,7 +91,7 @@
    background: linear-gradient(rgb(21,21,21), rgb(51,51,51));
     border-radius: 20px;
     width: 275px;
-    height: 275px;
+    height: 350px;
     max-height: 100%;
     z-index: 1900;
     position: fixed;
@@ -130,7 +132,19 @@
      }
 
       .yellow-display {
-         background: linear-gradient(dodgerblue, rgb(51,59,51)); 
+         background: linear-gradient(darkorange, rgb(21,19,71)); 
      }
-}
+      .darkblue-display {
+         background: linear-gradient(rgb(50,82,143), rgb(21,19,71)); 
+     } 
+      .lightblue-display {
+         background: linear-gradient(rgb(53,154,205), rgb(21,19,71)); 
+     } 
+     .red-display {
+          background: linear-gradient(rgb(202,43,41), rgb(21,19,71)); 
+     }
+     .green-display {
+         background: linear-gradient(rgb(27,168,120), rgb(71,80,71)); 
+     }
+} 
 
