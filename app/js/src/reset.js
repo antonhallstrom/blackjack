@@ -43,4 +43,6 @@ function clearStats() {
 
 function resetSplitButton() {
      $('.split-button').removeAttr("disabled").removeClass('button-disabled');
+     $('.double-button').removeAttr("disabled").removeClass('button-disabled');
 }
+

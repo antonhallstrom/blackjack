@@ -30,7 +30,6 @@
     background-position: center;
     position: fixed;
     z-index: 5;
-    
     margin-left: 1em;
     margin-top: -4.2em;
 
@@ -118,3 +117,64 @@
     margin-right: 7px;
 }
 
+.fifthy-menu, .tweenty-menu, .hundred-menu, .ten-menu, .five-menu, .two-menu, .one-menu  {
+    box-shadow:  1px 1px 10px rgba(0,0,0,0.9);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    z-index: 5;
+
+    &:hover {
+        border: 2px solid gold;
+    }
+}
+
+
+
+.hundred-menu {
+ background: url(../images/chips/chip-100.svg);
+   background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fifthy-menu {
+ background: url(../images/chips/chip-50.svg);
+   background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tweenty-menu {
+ background: url(../images/chips/chip-20.svg); 
+  background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ .ten-menu {
+ background: url(../images/chips/chip-10.svg);
+   background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+
+ .five-menu {
+ background: url(../images/chips/chip-5.svg);
+   background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+
+ .two-menu {
+ background: url(../images/chips/chip-2.svg); 
+  background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+
+ .one-menu {
+ background: url(../images/chips/chip-1.svg);
+   background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ }

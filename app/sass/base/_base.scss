@@ -1,11 +1,17 @@
 // Modern border-box applied everywhere.
 html {
   box-sizing: border-box;
+
+}
+
+* {
+   box-sizing: border-box;
+   
+   
 }
 
 body {
   height: 100vh;
-  
 }
 
 *,

@@ -14,16 +14,29 @@
     </head>
     <body>
         <div class="start-window">
+
              <button class="start-button">Start</button>
         </div>
         <div id="draggable" class="ui-widget-content card-menu">
                 <div id="turn" class="stats">Round:</div>
                 <div id="maxBet-stats" class="stats">Max Bet:</div>
-                <div id="dealer-stats" class="stats">Dealer Hand:</div>
-                <div id="player-stats" class="stats">Player Hand:</div>
-                <div id="split-stats" class="stats">Player Split:</div>
+                <div id="dealer-stats" class="stats purple-display">Dealer Hand:</div>
+                <div id="player-stats" class="stats teal-display">Player Hand:</div>
+                <div id="split-stats" class="stats yellow-display">Player Split:</div>
+                <div id="bet-stats" class="stats yellow-display">Player Bets:</div>
         </div>
-       
+        
+        <div id="place-bet-menu">
+            <i class="material-icons select-arrow">navigation</i>
+            <div class="one-menu"></div>
+            <div class="two-menu"></div>
+            <div class="five-menu"></div>
+            <div class="ten-menu"></div>
+            <div class="tweenty-menu"></div>
+            <div class="fifthy-menu"></div>
+            <div class="hundred-menu"></div>
+        </div>
+
         <div id="gameWindow"></div>
         <nav>
 
@@ -50,6 +63,7 @@
                         
                         
                     </div>
+                    <div class="double-animation">x 2</div>
                     <div id="playerBetZone">
                          
                     </div>  

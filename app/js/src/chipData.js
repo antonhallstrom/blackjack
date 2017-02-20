@@ -21,12 +21,12 @@ const chipData = {
 
     },
     chip_20: {
-        img: '../images/chips/chip-20.svg',
+        img: 'images/chips/chip-20.svg',
         value: 20,
         class: 'tweenty'
     },
     chip_50: {
-        img: '../images/chips/chip-50.svg',
+        img: 'images/chips/chip-50.svg',
         value: 50,
         class: 'fifthy'
     },

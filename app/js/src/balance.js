@@ -8,13 +8,13 @@ renderBalance(playerBalance);
 
 function renderBalance(playerBalance) {
     $('#balance').text(playerBalance + '.00');
-}
+} 
 
 
 
 
 function changeTurn() {
-    maxBet = turn++ < 4 ? 20 : 50;
+    maxBet = turn++ < 8 ? 20 : 50;
 }
 
 function renderChip(chipImg, chipClass, split = false) {
@@ -61,5 +61,18 @@ function reduceBets() {
    return playerBets.reduce(getSum,0);
 }
 
+ $('.double-button').on('click', () => {
+      placeBet(maxBet);
+      getBetChip(maxBet, false);
+      displayPlayerBets();
+      animationDoubleBet();
+      $('.double-button').attr("disabled", "disabled").addClass('button-disabled');
+ });
 
-
+function animationDoubleBet() {
+ $('.double-animation').addClass('show-double-animation');
+    setTimeout(() => {
+     $('.double-animation').removeClass('show-double-animation');  
+    },1000);
+}
+ 

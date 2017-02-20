@@ -4,8 +4,10 @@
 $('.start-button').on('click', startTurn);
 
  function startTurn() {
-    
-     
+     $('.start-window').remove();
+   
+    displayMaxBet();
+
      if(validateBet(maxBet) === 0) {
         $('.display-result').text('Sorry, you dont have enough chips! Max Bet is ' + maxBet);
          animationDisplayResult(3500);
@@ -16,30 +18,37 @@ $('.start-button').on('click', startTurn);
          animationDisplayResult(3500);
          },3800);
     } else {
-    $('.start-window').remove();
+   
+    
     disableButtons();
     displayTurn();
-    playerBets = [];
     changeTurn();
-    setTimeout(() => {
+
+
+
         displayMaxBet();
         placeBet(maxBet);
         getBetChip(maxBet, false);
-        
+        displayPlayerBets();
         $('.addSub-tooltip').addClass('show-tooltip');
         
-        setTimeout(dealsToPlayer, 1200);
+    const runTurn = setTimeout(() => {
+        console.log('run turn started')
+        //  setTimeout(dealsToPlayer, 1400);
        
-        setTimeout(dealsToDealer(false), 1400);
+        // setTimeout(dealsToDealer(false), 1200);
 
         setTimeout(() => {
             $('.addSub-tooltip').removeClass('show-tooltip');
         }, 700);
 
-        setTimeout(dealsToPlayer, 1600);
+        // setTimeout(dealsToPlayer, 1600);
 
-        setTimeout(dealsToDealer, 1800);
-        
+        // setTimeout(dealsToDealer, 1800);
+        dealsToDealer(false);
+        dealsToPlayer();
+        dealsToDealer();
+        dealsToPlayer();
         setTimeout(() => {
             displayDealerHand()
             displayPlayerHand();
@@ -47,13 +56,18 @@ $('.start-button').on('click', startTurn);
 
         setTimeout(() => {
          $('.display-result').text('Dealer is checking your hand for blackjack...');
-         animationDisplayResult(1800);
-        }, 2200);
+         animationDisplayResult(1200);
+          console.log('start turn ended')
+        }, 1000);
         
-        setTimeout(evaluateBestHand, 5000);
-
-     }, 1500);
+        setTimeout(evaluateFirstBlackJack, 2500);
+           setTimeout(() => {
+           clearTimeout(runTurn);
+         console.log('clear Timeout done')
+         },3000)
+      }, 300); 
     }
+  
     };
   
 
