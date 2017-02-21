@@ -167,6 +167,24 @@ function evaluateOnHit() {
       }
 };
 
+
+function evaluateTwoHands() {
+      if(cardStatus(playerHand) > 21 || cardStatus(playerSplitHand) > 21) {
+        disableButtons();
+        displayPlayerHand();
+        $('.display-result').text('You Bust!');
+        animationDisplayResult(2500);
+        renderBalance(playerBalance - reduceBetsSplit());
+        renderBalance(playerBalance - reduceBets());
+        setTimeout(setup, 2500);
+        
+      } else {
+          $('.display-result').text('Keep going?');
+          animationDisplayResult(2000);
+      }
+}
+
+
 function setup() {
     cleanTable();
      enableBetButtons();

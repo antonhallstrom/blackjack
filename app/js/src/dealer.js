@@ -1,14 +1,3 @@
-// 4. Dealer logic
-// Dealer should hand ut card to player one at a time
-// So first one card to me then one face down to the Dealer
-// Then another to me then a face-up to the dealer.
-
-// we will splice(0, 1) to draw a card.
-
-// How to place a card to the player.
-
-// How to place a card to the dealer face-down.
-
 let playerHand = [];
 let playerSplitHand = [];
 let dealerHand = [];
@@ -68,22 +57,29 @@ function flipCard() {    
 function validateSplit(array, maxSplit) {
     if(array[0].value === array[1].value && maxSplit === false && playerBalance >= maxBet) {
          validSplit.state = true;
-          placeBet(maxBet);
-           getBetChip(maxBet, true);
+          $('.double-button').attr("disabled", "disabled").addClass('button-disabled');
+         playerBets.forEach((chip) => {
+         const bet = chip;
+           renderBalance(playerBalance = playerBalance - bet);
+           getBetChip(bet, true);
+           getOrplaceBetAnimation(bet);
+           displayPlayerBets();
+        });
            playerSplitHand = playerHand.slice(0, 1);
             playerHand.splice(0,1);
             $('#cardHolder').children(':first-child').appendTo('#splitZone');
+            $('.split-button').attr("disabled", "disabled").addClass('button-disabled');
+           
+
             setTimeout(updateForOneCard, 300);
     } else false;
    
  }
 
-// Event listner for button.
 $('.split-button').on('click', () => {
     validateSplit(playerHand, validSplit.state);
     
 });
-
 
 
 $('.hit-button').on('click', function() {
@@ -99,4 +95,6 @@ $('.hit-button').on('click', function() {
 function ifSplitTrue() {
     validSplit.state === true ? dealsToPlayer(open = true) + dealsToPlayer(open = false): false;
      setTimeout(displayPlayerHand(),displayPlayerSplit(), 1000); 
+     evaluateTwoHands();
 }
+

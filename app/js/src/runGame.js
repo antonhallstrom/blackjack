@@ -1,4 +1,4 @@
-
+// Displays Min and Max Bet
    displayMaxBet();
    displayMinBet();
  
@@ -16,43 +16,36 @@ $('.start-button').on('click', () => {
 
 $('.start-window').addClass('show-start-window');
  function startTurn() {
-     $('.start-window').removeClass('show-start-window');
-  
+     
+    $('.start-window').removeClass('show-start-window');
     displayMaxBet();
     displayMinBet();
 
      if(validateBet(maxBet) === 0) {
         $('.display-result').text('Sorry, you dont have enough chips! Max Bet is ' + maxBet);
          animationDisplayResult(3500);
-         
          disableButtons();
          setTimeout(() => {
-              $('.display-result').text('Thanks Come Again!');
+         $('.display-result').text('Thanks Come Again!');
          animationDisplayResult(3500);
          },3800);
     } else {
-   
-    
-    disableButtons();
-    displayTurn();
-    changeTurn();
-
-
-
+        
+        disableButtons();
+        displayTurn();
+        changeTurn();
+        
         displayMaxBet();
         displayMinBet();
         displayPlayerBets();
-        
-        
-    const runTurn = setTimeout(() => {
-        console.log('run turn started')
-   
 
-     
+const runTurn = setTimeout(() => {
+        
         dealsToDealer(false);
         dealsToPlayer();
         dealsToDealer();
         dealsToPlayer();
+        
         setTimeout(() => {
             displayDealerHand()
             displayPlayerHand();
@@ -61,22 +54,17 @@ $('.start-window').addClass('show-start-window');
         setTimeout(() => {
          $('.display-result').text('Dealer is checking your hand for blackjack...');
          animationDisplayResult(1200);
-          console.log('start turn ended')
         }, 1000);
         
         setTimeout(evaluateFirstBlackJack, 2500);
            setTimeout(() => {
            clearTimeout(runTurn);
-         console.log('clear Timeout done')
+
          },3000)
       }, 300); 
     }
   
     };
-  
-
-
-
 
 $('.stay-button').on('click', function() {
      flipCard();

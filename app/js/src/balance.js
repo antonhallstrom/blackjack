@@ -11,9 +11,6 @@ function renderBalance(playerBalance) {
     $('#balance').text(playerBalance + '.00');
 } 
 
-
-
-
 function changeTurn() {
     maxBet = turn++ < 6 ? 20 : 50;
     if(turn <6) {
@@ -80,6 +77,10 @@ function timesTwo(a) {
 
 function reduceBets() {
    return playerBets.reduce(getSum,0);
+}
+
+function reduceBetsSplit() {
+   return playerSplitBets.reduce(getSum,0);
 }
 
  $('.double-button').on('click', () => {
